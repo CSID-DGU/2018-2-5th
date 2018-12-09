@@ -26,8 +26,6 @@
 </head>
 
 <body>
-
-
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -36,12 +34,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="logo" href="index.html"><h5>Blood Coin</h5></a>
+          <a class="logo" href="http://localhost:3000"><h5>Blood Coin</h5></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#signup" class="scroll">회원가입</a></li><!-- 이부분이 휠 내릴시 나오는 창임 -->
-            <li><a href="#signin">로그인</a></li>
+            <% if(name){ %>
+            <li font color="white"> <%= name%>님 환영합니다</li>
+            <% } else{ %>
+              <li><a href="http://localhost:3000/signup">회원가입</a></li><!-- 이부분이 휠 내릴시 나오는 창임 -->
+              <li><a href="http://localhost:3000/login">로그인</a></li>
+            <% } %>
           </ul>
         </div><!--/.navbar-collapse -->
       </div>
@@ -51,10 +53,15 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-6">
-            <a href="index.html"><h4>Blood Coin</h4></a>
+            <a href="http://localhost:3000"><h4>Blood Coin</h4></a>
           </div>
           <div class="col-xs-6 signin text-right navbar-nav">
-           <a href="#signup" class="scroll">회원가입</a>&nbsp; &nbsp;<a href="#signin">로그인</a>
+            <% if(name) { %>
+            <font color=white><%= name%>님 환영합니다</font>
+            <a href="http://localhost:3000/logout"><font color=green>로그아웃</font></a>
+            <% } else{ %>
+           <a href="http://localhost:3000/signup">회원가입</a>&nbsp; &nbsp;<a href="http://localhost:3000/login">로그인</a>
+             <% } %>
           </div>
         </div>
 
@@ -73,7 +80,7 @@
                     <a href="#be-the-first" class="btn btn-secondary btn-lg scroll">더 알아보기</a>
                   </div>
                   <div class="col-xs-6 text-left wow fadeInUp" data-wow-delay="1.4s">
-                    <a href="#signin" class="btn btn-primary btn-lg scroll">로그인</a>
+                    <a href="http://localhost:3000/login" class="btn btn-primary btn-lg scroll">로그인</a>
                   </div>
                 </div><!--End Button Row-->
               </div>
@@ -188,33 +195,7 @@
     </section>
 
 
-    <section id="signin" class="pad-lg light-gray-bg">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 col-sm-offset-2 text-center">
-            <i class="fa fa-envelope-o margin-40"></i>
-            <h2 class="black">로그인</h2>
-            <br />
-            <p class="black">계정이 없으신가요?</p>
-              <a href="#signup" class="scroll">회원가입</a>
-            <br />
 
-            <div class="row">
-              <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                <form role="form">
-                  <div class="form-group">
-                    <input type="id" class="form-control" placeholder="Enter ID">
-                    <input type="password" class="form-control" placeholder="Enter Password">
-                  </div>
-                  <button type="submit" class="btn btn-primary btn-lg">로그인</button>
-                </form>
-              </div>
-            </div><!--End Form row-->
-
-          </div>
-        </div>
-      </div>
-    </section>
     <section id="press" class="pad-sm">
       <div class="container">
 
@@ -230,39 +211,7 @@
       </div>
     </section>
 
-        <section id="signup" class="pad-lg light-gray-bg">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-8 col-sm-offset-2 text-center">
-                <i class="fa fa-envelope-o margin-40"></i>
-                <h2 class="black">회원가입</h2>
-                <br />
-                <p class="black">하기 항목들을 정확하게 기입하세요.</p>
-                <br />
 
-                <div class="row">
-                  <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                    <form role="form">
-                      <div class="form-group">
-                        <input type="name" class="form-control" placeholder="성명">
-                        <input type="Birth" class="form-control" placeholder="생년월일 ex)19971220">
-                        <input type="bloodtype" class="form-control" placeholder="혈액형">
-                        <input type="email" class="form-control" placeholder="이메일 주소">
-                        <input type="wallet" class="form-control" placeholder="전자지갑 주소">
-                        <input type="id" class="form-control" placeholder="사용하고 싶은 아이디">
-                        <input type="password" class="form-control" placeholder="사용하고 싶은 비밀번호">
-                        <input type="password" class="form-control" placeholder="비밀번호 확인">
-
-                      </div>
-                      <button type="submit" class="btn btn-primary btn-lg">제출</button>
-                    </form>
-                  </div>
-                </div><!--End Form row-->
-
-              </div>
-            </div>
-          </div>
-        </section>
 
 
 
