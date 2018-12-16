@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <title>Blood Coin Project</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <meta property="og:title" content="">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<meta property="og:description" content="">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./template/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./template/css/animate.css">
+  <link rel='stylesheet'href='./template/css/styleSheet.css'>
+
+
+  <link rel="stylesheet" href="./template/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./template/css/main.css">
+
+  <script src="./template/js/modernizr-2.7.1.js"></script>
+
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="logo" href="http://13.209.3.142:3000"><h5>Blood Coin</h5></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <% if(name){ %>
+            <li font color="white"> <%= name%>님 환영합니다</li>
+            <% } else{ %>
+              <li><a href="http://13.209.3.142:3000/signup">회원가입</a></li><!-- 이부분이 휠 내릴시 나오는 창임 -->
+              <li><a href="http://13.209.3.142:3000/login">로그인</a></li>
+            <% } %>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+
+
+
+
+    <section id="main-info" class="pad-xl">
+	    <div class="container">
+		    <div class="row">
+			    <div class="col-sm-4 wow fadeIn" data-wow-delay="0.4s">
+				    <hr class="line Sred">
+				    <h3>헌혈증 발급</h3>
+				    <p>언제 어디서나 쉽고 간편하게 헌혈증을 발급 받으세요</p>
+			    </div>
+			    <div class="col-sm-4 wow fadeIn" data-wow-delay="0.8s">
+				    <hr  class="line red">
+				    <h3>양도</h3>
+				    <p>쓰지 않는 헌혈증을 더욱 빠르고 신속하게 다른 사람에게 기부해요</p>
+			    </div>
+			    <div class="col-sm-4 wow fadeIn" data-wow-delay="1.2s">
+				    <hr  class="line orange">
+				    <h3>헌혈코인</h3>
+				    <p>헌혈증 발급과 양도 이 모든것을 블록체인과 함께해요</p>
+			    </div>
+		    </div>
+	    </div>
+    </section>
+
+    <footer>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-sm-8 margin-20">
+            <ul class="list-inline social">
+              <li>Connect with us on</li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+          </div>
+
+          <div class="col-sm-4 text-right">
+            <p><small>Copyright &copy; 2018.11.25 All rights reserved. <br>
+	            Created by JackyPark</p>
+          </div>
+        </div>
+
+      </div>
+
+    </footer>
+
+
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="./template/js/jquery-1.11.0.min.js"><\/script>')</script>
+    <script src="./template/js/wow.min.js"></script>
+    <script src="./template/js/bootstrap.min.js"></script>
+    <script src="./template/js/main.js"></script>
+
+
+    </body>
+</html>

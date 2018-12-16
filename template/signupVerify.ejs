@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="utf-8">
@@ -20,7 +21,7 @@
 
   <link rel="stylesheet" href="./template/css/bootstrap.min.css">
   <link rel="stylesheet" href="./template/css/main.css">
-  <link rel="stylesheet" href="./template/css/custom.css">
+
   <script src="./template/js/modernizr-2.7.1.js"></script>
 
 </head>
@@ -56,32 +57,38 @@
 
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-            <form role="form" action="/signup" method="post">
+            <form role="form" action="/signupVerify" method="post">
               <div class="form-group">
-                  <select name="personBloodType">
-                    <option value="0">혈액형:</option>
-                    <option value="A Rh+">A Rh+</option>
-                    <option value="A Rh-">A Rh-</option>
-                    <option value="B Rh+">B Rh+</option>
-                    <option value="B Rh-">B Rh-</option>
-                    <option value="O Rh+">O Rh+</option>
-                    <option value="O Rh-">O Rh-</option>
-                    <option value="AB Rh+">AB Rh+</option>
-                    <option value="AB Rh">AB Rh-</option>
-                  </select>
-
-                <input type="name" class="form-control" placeholder="성명" name="personName" required>
-                <input type="Birth" class="form-control" placeholder="생년월일 ex)19971220" name="personBirthDate" required>
-                <input type="email" class="form-control" placeholder="이메일 주소" name="personEmail" required>
-                <input type="wallet" class="form-control" placeholder="전자지갑 주소" name="personPocket" required>
-                <input type="id" class="form-control" placeholder="사용하고 싶은 아이디" name="personID" required>
-                <input type="password" class="form-control" placeholder="사용하고 싶은 비밀번호" name="personPwd" required>
-                <input type="password" class="form-control" placeholder="비밀번호 확인" name="personPwd2" required>
-
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg">제출</button>
-                </form>
+                <table>
+                  <tr>
+                    <% personName %>
+                  </tr>
+                  <tr>
+                    <%   personBirthDate %>
+                  </tr>
+                  <tr>
+                    <% personBloodType%>
+                  </tr>
+                  <tr>
+                    <% personEmail%>
+                  </tr>
+                  <tr>
+                    <% personPocket %>
+                  </tr>
+                  <tr>
+                    <% personID %>
+                  </tr>
+                  <tr>
+                    <% personPwd %>
+                  </tr>
+                  <tr>
+                    <%   personPwd2%>
+                  </tr>
+                </table>
               </div>
+             <button type="submit" class="btn btn-primary btn-lg">제출</button>
+            </form>
+          </div>
         </div><!--End Form row-->
         <br>
       </div>
