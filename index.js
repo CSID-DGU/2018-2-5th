@@ -27,12 +27,12 @@ let server=OrientDB({
   host:'localhost',
   port:2424,//기본 포트
   username:'root',
-  password:'wpfmekdla7'
+  password:'*****'
 });
 let db=server.use({
     name:'gettingStarted',
     username: 'admin',
-   password: 'wpfmekdla7'
+   password: '*****'
   });
 console.log('Using Database:'+ db.name);
 
