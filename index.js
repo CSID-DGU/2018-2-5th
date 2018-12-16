@@ -4,6 +4,7 @@ var session=require('express-session');
 
 var jq = require("jquery");
 var bodyParser=require("body-parser");
+let OrientDB=require('orientjs');
 
 app.use(session({
   secret: 'secret key',
@@ -22,16 +23,20 @@ app.set('view engine','ejs');//어떤 형식의 템플릿을 사용할 것인지
 app.locals.pretty=true;
 
 
-
-let OrientDB=require('orientjs');
 let server=OrientDB({
   host:'localhost',
   port:2424,//기본 포트
   username:'root',
-  password:'**********'
+  password:'wpfmekdla7'
 });
-let db=server.use('gettingStarted');
+let db=server.use({
+    name:'gettingStarted',
+    username: 'admin',
+   password: 'wpfmekdla7'
+  });
 console.log('Using Database:'+ db.name);
+
+
 
 app.post('/signup',function(req,res){
   let pname=req.body.personName;
@@ -70,36 +75,41 @@ app.post('/loginverify',function(req,res){
   var sql="select id,pwd,name from personInfo where id='"+id+"'and pwd='"+password+"'";
 
   db.query(sql).then(function(results){
-
     //console.log(results[0].name);
-    if((id==results[0].id) && (password==results[0].pwd)){
-
+    if( results[0].id === undefined){
+      res.redirect('errPage');
+    }
+    else ((id==results[0].id) && (password==results[0].pwd))
+    {
     req.session.user={
         id: results[0].id,
         name:results[0].name
     };
     req.session.save(() => {
-      //var user=req.session.user;
-      res.render('index.ejs',{name:req.session.user.name})
+      if("root"==results[0].id){
+        res.render('login_admin.ejs',{name:req.session.user.name});
+      }
+      else{
+        res.render('index.ejs',{name:req.session.user.name});
+      }
     });
 
     //console.log(req.session.user);
     }
-    else {
-      res.redirect('/')
-    }
+
   });
 
 })
 
 app.get('/',function(req,res){
     if(req.session.user){
-    var user=req.session.user;
-    //console.log(user);
-    res.render('index.ejs',{name:req.session.user.name});
+      var user=req.session.user;
+      //console.log(user);
+
+        res.render('index.ejs',{name:req.session.user.name});
     }
     else{
-    res.render('index.ejs',{name:null});
+        res.render('index.ejs',{name:null});
     }
 });
 app.get('/logout',function (req,res) {
@@ -110,6 +120,32 @@ app.get('/logout',function (req,res) {
 app.get('/signup',function(req,res){
   //let title='학생 성적표 등록하기';
   res.render('signup.ejs');
+});
+app.get('/board',function(req,res){
+  var sql="select * from noticeBoard";
+
+  if(req.session.user){
+    var user=req.session.user;
+    //console.log(user);
+      db.query(sql).then(function(results){
+      res.render('board.ejs',{name:req.session.user.name,data:results});
+    })
+  }
+})
+app.get('/mypage',function(req,res){
+  if(req.session.user){
+    var user=req.session.user;
+    //console.log(user);
+
+      res.render('mypage.ejs',{name:req.session.user.name});
+  }
+  else{
+      res.render('mypage.ejs',{name:null});
+  }
+});
+app.get('/errPage',function(req,res){
+  //let title='학생 성적표 등록하기';
+  res.render('errPage.ejs');
 });
 app.listen(3000,function(req,res){
   console.log('port 3000 connected!');
