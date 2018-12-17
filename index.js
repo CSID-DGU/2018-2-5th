@@ -27,7 +27,7 @@ let server=OrientDB({
   host:'localhost',
   port:2424,//기본 포트
   username:'root',
-  password:'*****'
+  password:'******'
 });
 let db=server.use({
     name:'gettingStarted',
@@ -87,7 +87,10 @@ app.post('/loginverify',function(req,res){
     };
     req.session.save(() => {
       if("root"==results[0].id){
-        res.render('login_admin.ejs',{name:req.session.user.name});
+        var sql="select * from donationReserved";
+          db.query(sql).then(function(results){
+            res.render('login_admin.ejs',{name:req.session.user.name, result:results});
+        })
       }
       else{
         res.render('index.ejs',{name:req.session.user.name});
@@ -96,9 +99,7 @@ app.post('/loginverify',function(req,res){
 
     //console.log(req.session.user);
     }
-
   });
-
 })
 
 app.get('/',function(req,res){
@@ -146,6 +147,25 @@ app.get('/mypage',function(req,res){
 app.get('/errPage',function(req,res){
   //let title='학생 성적표 등록하기';
   res.render('errPage.ejs');
+});
+
+
+app.post('/donation',function(req,res){
+  var bt=req.body.personBloodType;
+  var nt=req.body.personDonationType;
+  var name=req.body.personName;
+
+  var sql='insert into donationReserved (bloodType,donationType,name)'
+    +'values(:bloodType,:donationType,:name)';
+      db.query(sql,{
+        params:{
+          bloodType:bt,
+          donationType:nt,
+          name:name
+        }
+      }).then(function(results){
+      })
+    res.redirect('/');
 });
 app.listen(3000,function(req,res){
   console.log('port 3000 connected!');
