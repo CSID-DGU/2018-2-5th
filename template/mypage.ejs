@@ -20,7 +20,7 @@
 
   <link rel="stylesheet" href="./template/css/bootstrap.min.css">
   <link rel="stylesheet" href="./template/css/main.css">
-
+  <link rel="stylesheet" href="./template/css/custom.css">
   <script src="./template/js/modernizr-2.7.1.js"></script>
 
 </head>
@@ -67,80 +67,46 @@
 
         <div class="row header-info">
           <div class="col-sm-10 col-sm-offset-1 text-center">
-            <h1 class="wow fadeIn">나눔 게시판</h1>
+            <h1 class="wow fadeIn">헌혈 예약하기</h1>
             <br />
-
+            <p class="lead wow fadeIn" data-wow-delay="0.5s">동국대학교 컴퓨터공학과 <br>
+            박재용 박민수 김경호 김영균</p>
             <br />
-
-            <div class="row">
-              <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-                <div class="row">
-                  <div class="col-xs-6 text-right wow fadeInUp" data-wow-delay="0.8s">
-                    <a href="#news" class="btn btn-secondary btn-lg scroll">헌혈의 행복</a>
-                  </div>
-                  <div class="col-xs-6 text-left wow fadeInUp" data-wow-delay="1s">
-                    <% if(name){ %>
-                    <a href="http://13.209.3.142:3000/mypage" class="btn btn-secondary btn-lg scroll">헌혈 신청</a>
-                    <% }else{ %>
-                    <a href="http://13.209.3.142:3000/login" class="btn btn-secondary btn-lg scroll">헌혈 신청</a>
-                    <%} %>
-
-                  </div>                                  </div>
-                  <div class="w-100 d-none d-md-block"><br></div>
-                  <div class="row">
-                  <div class="col-xs-6 text-right wow fadeInUp" data-wow-delay="1.2s">
-                    <% if(name){ %>
-                    <a href="http://13.209.3.142:3000/mypage" class="btn btn-third btn-lg scroll">나눔 게시판</a>
-                    <% }else{ %>
-                    <a href="http://13.209.3.142:3000/login" class="btn btn-third btn-lg scroll">나눔 게시판</a>
-                    <%} %>
-                  </div>
-                  <div class="col-xs-6 text-left wow fadeInUp" data-wow-delay="1.4s">
-                    <% if(name){ %>
-                    <a href="http://13.209.3.142:3000/mypage" class="btn btn-primary btn-lg scroll">나의 헌혈</a>
-                    <% }else{ %>
-                      <a href="http://13.209.3.142:3000/login" class="btn btn-primary btn-lg scroll">나의 헌혈</a>
-                    <%} %>
-                  </div>
-                </div><!--End Button Row-->
-              </div>
-            </div>
-
           </div>
         </div>
+
       </div>
     </header>
+
+
+
 
     <div class="mouse-icon hidden-xs">
 				<div class="scroll"></div>
 			</div>
-      <section id="board" class="pad-lg">
-        <table class="table table-hover">
-          <caption>현재 게시판</caption>
-          <thead align="center">
-          <tr align="center">
-            <th>아이디</th>
-            <td>제목</td>
-            <td>내용</td>
-            <td>기록 날짜</td>
-          </tr>
-        </thead>
 
-          <% if(data){ for(var i=0; i < data.length; i++) { %>
-            <% var parsedDate=new Date(data[i].writtenDate)%>
-            <% var final=parsedDate.toLocaleString();%>
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+          <form role="form" action="/donation" method="post">
+            <div class="form-group">
+              <input  class="form-control" value=" <%=bloodType %>" name="personBloodType" readonly>
+              <select name="personDonationType">
+                  <option value="0">헌혈타입:</option>
+                  <option value="혈장헌혈 500ml">혈장헌혈 500ml</option>
+                  <option value="전헐헌혈 400ml">전헐헌혈 400ml</option>
+                  <option value="혈소판헌혈 250ml">혈소판헌혈 250ml</option>
+                  <option value="혈소판혈장헌혈 550ml">혈소판혈장헌혈 550ml</option>
+                  <option value="백혈구 헌혈 12ml">백혈구 헌혈 12ml</option>
+              </select>
+              <input  class="form-control" value=" <%=name %>" name="personName" readonly>
+
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg">제출</button>
+              </form>
+            </div>
+      </div><!--End Form row-->
 
 
-            <tr align="center" >
-              <td><%= data[i].id %></td>
-              <td><%= data[i].title %></td>
-              <td><%= data[i].contents %></td>
-              <td><%= final%></td>
-            </tr>
-            <% } } %>
-        </table>
-            <div align="center"><a href="http://13.209.3.142:3000/boardForWrite" class="btn btn-primary btn-lg scroll">글 쓰기</a></div>
-      </section>
 
 
 
@@ -159,6 +125,10 @@
         </div>
       </div>
     </section>
+
+
+
+
 
 
     <footer>

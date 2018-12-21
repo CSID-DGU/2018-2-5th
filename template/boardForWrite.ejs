@@ -67,11 +67,12 @@
 
         <div class="row header-info">
           <div class="col-sm-10 col-sm-offset-1 text-center">
-            <h1 class="wow fadeIn">나눔 게시판</h1>
+            <h1 class="wow fadeIn">쓰기 게시판</h1>
             <br />
-
+            <p class="lead wow fadeIn" data-wow-delay="0.5s">동국대학교 컴퓨터공학과 <br>
+            박재용 박민수 김경호 김영균</p>
             <br />
-
+            <!--
             <div class="row">
               <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
                 <div class="row">
@@ -102,10 +103,11 @@
                       <a href="http://13.209.3.142:3000/login" class="btn btn-primary btn-lg scroll">나의 헌혈</a>
                     <%} %>
                   </div>
-                </div><!--End Button Row-->
+                </div>
+
               </div>
             </div>
-
+          -->
           </div>
         </div>
       </div>
@@ -115,34 +117,13 @@
 				<div class="scroll"></div>
 			</div>
       <section id="board" class="pad-lg">
-        <table class="table table-hover">
-          <caption>현재 게시판</caption>
-          <thead align="center">
-          <tr align="center">
-            <th>아이디</th>
-            <td>제목</td>
-            <td>내용</td>
-            <td>기록 날짜</td>
-          </tr>
-        </thead>
-
-          <% if(data){ for(var i=0; i < data.length; i++) { %>
-            <% var parsedDate=new Date(data[i].writtenDate)%>
-            <% var final=parsedDate.toLocaleString();%>
 
 
-            <tr align="center" >
-              <td><%= data[i].id %></td>
-              <td><%= data[i].title %></td>
-              <td><%= data[i].contents %></td>
-              <td><%= final%></td>
-            </tr>
-            <% } } %>
-        </table>
-            <div align="center"><a href="http://13.209.3.142:3000/boardForWrite" class="btn btn-primary btn-lg scroll">글 쓰기</a></div>
+
+
+
+
       </section>
-
-
 
 
     <section id="press" class="pad-sm">
@@ -159,6 +140,10 @@
         </div>
       </div>
     </section>
+
+
+
+
 
 
     <footer>

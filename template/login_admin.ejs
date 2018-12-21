@@ -104,21 +104,19 @@
                 <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="display:inline-block; margin:40px;">
             <thead>
               <tr>
-                <th class="mdl-data-table__cell--non-numeric">헌혈증 지갑주소</th>
                 <th>이름</th>
                 <th>혈액형</th>
                 <th>헌혈 종류</th>
+                <th class="mdl-data-table__cell--non-numeric">헌혈증 지갑주소</th>
               </tr>
             </thead>
             <tbody>
                 <% for(var i=0; i < result.length; i++){ %>
               <tr>
-
-                <td class="mdl-data-table__cell--non-numeric">0x394007F549fF41a72EA7b2604b85086a87850258</td>
-                <td> <%=result[i].name  %></td>
-                <td><%=result[i].bloodType  %></td>
-                <td><%=result[i].donationType  %></td>
-
+                <td> <%=result[i].name %></td>
+                <td><%=result[i].bloodType %></td>
+                <td><%=result[i].donationType %></td>
+                <td><%=result[i].coinPocket%> </td>
               </tr>
                 <% } %>
             </tbody>
