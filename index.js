@@ -10,7 +10,7 @@ app.use(session({
   secret: 'secret key',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false, maxAge: 60*2000 }
+  cookie: { secure: false, maxAge: 60*20000 }
   //using secure flag means that the cookie will be set on Https only
 }))
 
@@ -27,12 +27,12 @@ let server=OrientDB({
   host:'localhost',
   port:2424,//기본 포트
   username:'root',
-  password:'******'
+  password:'*******'
 });
 let db=server.use({
     name:'gettingStarted',
     username: 'admin',
-   password: '*****'
+   password: '*******'
   });
 console.log('Using Database:'+ db.name);
 
@@ -72,7 +72,7 @@ app.get('/login',function(req,res){
 app.post('/loginverify',function(req,res){
   var id=req.body.id;
   var password=req.body.password;
-  var sql="select id,pwd,name from personInfo where id='"+id+"'and pwd='"+password+"'";
+  var sql="select id,pwd,name, coinPocket,bloodType from personInfo where id='"+id+"'and pwd='"+password+"'";
 
   db.query(sql).then(function(results){
     //console.log(results[0].name);
@@ -83,7 +83,9 @@ app.post('/loginverify',function(req,res){
     {
     req.session.user={
         id: results[0].id,
-        name:results[0].name
+        name:results[0].name,
+        pocket:results[0].coinPocket,
+        bloodType:results[0].bloodType
     };
     req.session.save(() => {
       if("root"==results[0].id){
@@ -104,8 +106,6 @@ app.post('/loginverify',function(req,res){
 
 app.get('/',function(req,res){
     if(req.session.user){
-      var user=req.session.user;
-      //console.log(user);
 
         res.render('index.ejs',{name:req.session.user.name});
     }
@@ -138,14 +138,20 @@ app.get('/mypage',function(req,res){
     var user=req.session.user;
     //console.log(user);
 
-      res.render('mypage.ejs',{name:req.session.user.name});
+      res.render('mypage.ejs',{name:user.name,bloodType:user.bloodType});
   }
   else{
       res.render('mypage.ejs',{name:null});
   }
 });
+
+app.get('/boardForWrite',function(req,res){
+    var user=req.session.user;
+  res.render('boardForWrite.ejs',{name:user.name,bloodType:user.bloodType});
+});
+
 app.get('/errPage',function(req,res){
-  //let title='학생 성적표 등록하기';
+
   res.render('errPage.ejs');
 });
 
@@ -154,14 +160,15 @@ app.post('/donation',function(req,res){
   var bt=req.body.personBloodType;
   var nt=req.body.personDonationType;
   var name=req.body.personName;
-
-  var sql='insert into donationReserved (bloodType,donationType,name)'
-    +'values(:bloodType,:donationType,:name)';
+  var pocket=req.session.user.pocket;
+  var sql='insert into donationReserved (bloodType,donationType,name,coinPocket)'
+    +'values(:bloodType,:donationType,:name,:coinPocket)';
       db.query(sql,{
         params:{
           bloodType:bt,
           donationType:nt,
-          name:name
+          name:name,
+          coinPocket:pocket
         }
       }).then(function(results){
       })
