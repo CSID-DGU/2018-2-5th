@@ -1,316 +1,639 @@
 <!DOCTYPE html>
+
 <html lang="en"><head>
-  <meta charset="utf-8">
-  <title>Blood Coin Project</title>
-  <meta name="keywords" content="user">
-  <meta name="description" content="user's page">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <meta property="og:title" content="BloodChain">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="unknown">
-	<meta property="og:site_name" content="BloodCoin">
-	<meta property="og:description" content="digitalize the license of blood donation by using block-chain ">
+<meta charset="utf-8">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="./template/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./template/css/animate.css">
-  <link rel='stylesheet'href='./template/css/styleSheet.css'>
+<title>Blood Coin Project</title>
+
+<meta name="keywords" content="user">
+
+<meta name="description" content="user's page">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
-  <link rel="stylesheet" href="./template/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./template/css/main.css">
 
-  <script src="./template/js/modernizr-2.7.1.js"></script>
+<meta property="og:title" content="BloodChain">
+
+<meta property="og:type" content="website">
+
+<meta property="og:url" content="unknown">
+
+<meta property="og:site_name" content="BloodCoin">
+
+<meta property="og:description" content="digitalize the license of blood donation by using block-chain ">
+
+
+
+<!-- Styles -->
+
+<link rel="stylesheet" href="./template/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="./template/css/animate.css">
+
+<link rel='stylesheet'href='./template/css/styleSheet.css'>
+
+
+
+
+
+<link rel="stylesheet" href="./template/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="./template/css/main.css">
+
+
+
+<script src="./template/js/modernizr-2.7.1.js"></script>
+
+
 
 </head>
 
+
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="logo" href="http://52.79.243.88:3000"><h5>Blood Coin</h5></a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <% if(name){ %>
-            <li font color="white"><%= name%>님 환영합니다</li>
-            <% } else{ %>
-              <li><a href="http://52.79.243.88:3000/signup">회원가입</a></li><!-- 이부분이 휠 내릴시 나오는 창임 -->
-              <li><a href="http://52.79.243.88:3000/login">로그인</a></li>
-            <% } %>
-          </ul>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </div>
 
-    <header>
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-6">
-            <a href="http://52.79.243.88:3000"><h4>Blood Coin</h4></a>
-          </div>
-          <div class="col-xs-6 signin text-right navbar-nav">
-            <% if(name) { %>
-            <font color=white><%= name%>님 환영합니다</font>
-            <a href="http://52.79.243.88:3000/logout"><font color=green>로그아웃</font></a>
-            <% } else{ %>
-           <a href="http://52.79.243.88:3000/signup">회원가입</a>&nbsp; &nbsp;<a href="http://52.79.243.88:3000/login">로그인</a>
-             <% } %>
-          </div>
-        </div>
+<div class="navbar navbar-inverse navbar-fixed-top">
 
-        <div class="row header-info">
-          <div class="col-sm-10 col-sm-offset-1 text-center">
-            <h1 class="wow fadeIn">전자 헌혈증</h1>
-            <br />
-            <p class="lead wow fadeIn" data-wow-delay="0.5s">동국대학교 컴퓨터공학과 <br>
-            박재용 박민수 김경호 김영균</p>
-            <br />
+<div class="container">
 
-            <div class="row">
-              <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-                <div class="row">
-                  <div class="col-xs-6 text-right wow fadeInUp" data-wow-delay="0.8s">
-                    <a href="#news" class="btn btn-secondary btn-lg scroll">헌혈의 행복</a>
-                  </div>
-                  <div class="col-xs-6 text-left wow fadeInUp" data-wow-delay="1s">
-                    <% if(name){ %>
-                    <a href="http://52.79.243.88:3000/mypage" class="btn btn-secondary btn-lg scroll">헌혈 신청</a>
-                    <% }else{ %>
-                    <a href="http://52.79.243.88:3000/login" class="btn btn-secondary btn-lg scroll">헌혈 신청</a>
-                    <%} %>
+<div class="navbar-header">
 
-                  </div>                                  </div>
-                  <div class="w-100 d-none d-md-block"><br></div>
-                  <div class="row">
-                  <div class="col-xs-6 text-right wow fadeInUp" data-wow-delay="1.2s">
-                    <% if(name){ %>
-                    <a href="http://52.79.243.88:3000/board" class="btn btn-third btn-lg scroll">나눔 게시판</a>
-                    <% }else{ %>
-                    <a href="http://52.79.243.88:3000/login" class="btn btn-third btn-lg scroll">나눔 게시판</a>
-                    <%} %>
-                  </div>
-                  <div class="col-xs-6 text-left wow fadeInUp" data-wow-delay="1.4s">
-                    <% if(name){ %>
-                    <a href="http://52.79.243.88:3000/mypage" class="btn btn-primary btn-lg scroll">나의 헌혈</a>
-                    <% }else{ %>
-                      <a href="http://52.79.243.88:3000/login" class="btn btn-primary btn-lg scroll">나의 헌혈</a>
-                    <%} %>
-                  </div>
-                </div><!--End Button Row-->
-              </div>
-            </div>
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 
-          </div>
-        </div>
-      </div>
-    </header>
+<span class="icon-bar"></span>
 
-    <div class="mouse-icon hidden-xs">
-				<div class="scroll"></div>
-			</div>
+<span class="icon-bar"></span>
 
-    <section id="be-the-first" class="pad-xl">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 col-sm-offset-2 text-center margin-30 wow fadeIn" data-wow-delay="0.6s">
-            <h2>헌혈하고 헌혈코인을 받으세요!</h2>
-            <p class="lead">헌혈증을 언제 어디서나 발급 받을 수 있습니다!</p>
-          </div>
-        </div>
+<span class="icon-bar"></span>
 
-        <div class="iphone wow fadeInUp" data-wow-delay="1s">
-	        <img src="./template/img/iphone.png">
-        </div>
-      </div>
-    </section>
+</button>
 
+<a class="logo" href="http://52.79.243.88:3000"><h5>Blood Coin</h5></a>
 
-    <section id="main-info" class="pad-xl">
-	    <div class="container">
-		    <div class="row">
-			    <div class="col-sm-4 wow fadeIn" data-wow-delay="0.4s">
-				    <hr class="line Sred">
-				    <h3>헌혈증 발급</h3>
-				    <p>언제 어디서나 쉽고 간편하게 헌혈증을 발급 받으세요</p>
-			    </div>
-			    <div class="col-sm-4 wow fadeIn" data-wow-delay="0.8s">
-				    <hr  class="line red">
-				    <h3>양도</h3>
-				    <p>쓰지 않는 헌혈증을 더욱 빠르고 신속하게 다른 사람에게 기부해요</p>
-			    </div>
-			    <div class="col-sm-4 wow fadeIn" data-wow-delay="1.2s">
-				    <hr  class="line orange">
-				    <h3>헌혈코인</h3>
-				    <p>헌혈증 발급과 양도 이 모든것을 블록체인과 함께해요</p>
-			    </div>
-		    </div>
-	    </div>
-    </section>
-    <section id="news" class="pad-xl">
-        <div class="col-sm-8 col-sm-offset-2 text-center margin-30 wow fadeIn wow bounceInDown" data-wow-delay="0.6s">
-          <h2>함께해요</h2>
-          <p class="lead text-center">작은 실천으로 생명을 구해요</p>
-
-        </div>
-
-      <div class="container"  data-wow-delay="1.0s">
-          <div style="Width:100%" class="embed-responsive embed-responsive-16by9">
-              <iframe src="https://www.youtube.com/embed/VCTBYIjXw4A" frameborder="0"  allowfullscreen></iframe>
-
-            </div>
-            <br>
-
-      </div>
-    </section>
-
-    <!--selection-->
-    <section id="selection" class="pad-lg">
-      <div class="container">
-        <div class="row margin-40">
-          <div class="col-sm-8 col-sm-offset-2 text-center">
-            <h2 class="white">헌혈 신청</h2>
-            <p class="white">헌혈 종류를 선택하고, 신청을 제출하시오.</p>
-          </div>
-        </div>
-
-        <div class="row margin-40">
-
-          <div class="col-xs-4 selection-container wow fadeInUp" data-wow-delay="0.7s">
-            <ul class="list-unstyled selection-table text-center">
-              <li class="headline"><h5 class="white">혈장 헌혈</h5></li>
-              <li class="price"><div class="amount">500<small>/ml</small></div></li>
-              <li class="features first">헌혈 가능 주기 : 2주일</li>
-              <% if(name){ %>
-              <li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/mypage">신청합니다</a></li>
-              <% }else {%>
-              <li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/login">신청합니다</a></li>
-              <% } %>
-            </ul>
-          </div>
-          <div class="col-xs-4 selection-container wow fadeInUp" data-wow-delay="0.2s">
-            <ul class="list-unstyled selection-table text-center">
-              <li class="headline"><h5 class="white">전혈 헌혈</h5></li>
-              <li class="price"><div class="amount">400<small>/ml</small></div></li>
-              <li class="features first">헌혈 가능 주기 : 2개월</li>
-              <% if(name){ %>
-              <li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/mypage">신청합니다</a></li>
-              <% }else {%>
-              <li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/login">신청합니다</a></li>
-              <% } %>
-            </ul>
-          </div>
-        <div class="col-xs-4 selection-container wow fadeInUp" data-wow-delay="0.5s">
-            <ul class="list-unstyled selection-table text-center">
-              <li class="headline"><h5 class="white">혈소판 헌혈</h5></li>
-              <li class="price"><div class="amount">250<small>/ml</small></div></li>
-                <li class="features first">헌혈 가능 주기 : 2주일</li>
-                <% if(name){ %>
-                <li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/mypage">신청합니다</a></li>
-                <% }else {%>
-                <li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/login">신청합니다</a></li>
-                <% } %>
-            </ul>
-          </div>
 </div>
-<br /><br />
+
+<div class="navbar-collapse collapse">
+
+<ul class="nav navbar-nav navbar-right">
+
+<% if(name){ %>
+
+<li font color="white"><%= name%>님 환영합니다</li>
+
+<% } else{ %>
+
+<li><a href="http://52.79.243.88:3000/signup">회원가입</a></li><!-- 이부분이 휠 내릴시 나오는 창임 -->
+
+<li><a href="http://52.79.243.88:3000/login">로그인</a></li>
+
+<% } %>
+
+</ul>
+
+</div><!--/.navbar-collapse -->
+
+</div>
+
+</div>
+
+
+
+<header>
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-xs-6">
+
+<a href="http://52.79.243.88:3000"><h4>Blood Coin</h4></a>
+
+</div>
+
+<div class="col-xs-6 signin text-right navbar-nav">
+
+<% if(name) { %>
+
+<font color=white><%= name%>님 환영합니다</font>
+
+<a href="http://52.79.243.88:3000/logout"><font color=green>로그아웃</font></a>
+
+<% } else{ %>
+
+<a href="http://52.79.243.88:3000/signup">회원가입</a>&nbsp; &nbsp;<a href="http://52.79.243.88:3000/login">로그인</a>
+
+<% } %>
+
+</div>
+
+</div>
+
+
+
+<div class="row header-info">
+
+<div class="col-sm-10 col-sm-offset-1 text-center">
+
+<h1 class="wow fadeIn">전자 헌혈증</h1>
+
+<br />
+
+<p class="lead wow fadeIn" data-wow-delay="0.5s">동국대학교 컴퓨터공학과 <br>
+
+박재용 박민수 김경호 김영균</p>
+
+<br />
+
+
+
+<div class="row">
+
+<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+
+<div class="row">
+
+<div class="col-xs-6 text-right wow fadeInUp" data-wow-delay="0.8s">
+
+<a href="#news" class="btn btn-secondary btn-lg scroll">헌혈의 행복</a>
+
+</div>
+
+<div class="col-xs-6 text-left wow fadeInUp" data-wow-delay="1s">
+
+<% if(name){ %>
+
+<a href="http://52.79.243.88:3000/mypage" class="btn btn-secondary btn-lg scroll">헌혈 신청</a>
+
+<% }else{ %>
+
+<a href="http://52.79.243.88:3000/login" class="btn btn-secondary btn-lg scroll">헌혈 신청</a>
+
+<%} %>
+
+
+
+</div>                                  </div>
+
+<div class="w-100 d-none d-md-block"><br></div>
+
+<div class="row">
+
+<div class="col-xs-6 text-right wow fadeInUp" data-wow-delay="1.2s">
+
+<% if(name){ %>
+
+<a href="http://52.79.243.88:3000/board" class="btn btn-third btn-lg scroll">나눔 게시판</a>
+
+<% }else{ %>
+
+<a href="http://52.79.243.88:3000/login" class="btn btn-third btn-lg scroll">나눔 게시판</a>
+
+<%} %>
+
+</div>
+
+<div class="col-xs-6 text-left wow fadeInUp" data-wow-delay="1.4s">
+
+<% if(name){ %>
+
+<a href="http://52.79.243.88:3000/mypage" class="btn btn-primary btn-lg scroll">나의 헌혈</a>
+
+<% }else{ %>
+
+<a href="http://52.79.243.88:3000/login" class="btn btn-primary btn-lg scroll">나의 헌혈</a>
+
+<%} %>
+
+</div>
+
+</div><!--End Button Row-->
+
+</div>
+
+</div>
+
+
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<div class="mouse-icon hidden-xs">
+
+<div class="scroll"></div>
+
+</div>
+
+
+
+<section id="be-the-first" class="pad-xl">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-sm-8 col-sm-offset-2 text-center margin-30 wow fadeIn" data-wow-delay="0.6s">
+
+<h2>헌혈하고 헌혈코인을 받으세요!</h2>
+
+<p class="lead">헌혈증을 언제 어디서나 발급 받을 수 있습니다!</p>
+
+</div>
+
+</div>
+
+
+
+<div class="iphone wow fadeInUp" data-wow-delay="1s">
+
+<img src="./template/img/iphone.png">
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<section id="main-info" class="pad-xl">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-sm-4 wow fadeIn" data-wow-delay="0.4s">
+
+<hr class="line Sred">
+
+<h3>헌혈증 발급</h3>
+
+<p>언제 어디서나 쉽고 간편하게 헌혈증을 발급 받으세요</p>
+
+</div>
+
+<div class="col-sm-4 wow fadeIn" data-wow-delay="0.8s">
+
+<hr  class="line red">
+
+<h3>양도</h3>
+
+<p>쓰지 않는 헌혈증을 더욱 빠르고 신속하게 다른 사람에게 기부해요</p>
+
+</div>
+
+<div class="col-sm-4 wow fadeIn" data-wow-delay="1.2s">
+
+<hr  class="line orange">
+
+<h3>헌혈코인</h3>
+
+<p>헌혈증 발급과 양도 이 모든것을 블록체인과 함께해요</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="news" class="pad-xl">
+
+<div class="col-sm-8 col-sm-offset-2 text-center margin-30 wow fadeIn wow bounceInDown" data-wow-delay="0.6s">
+
+<h2>함께해요</h2>
+
+<p class="lead text-center">작은 실천으로 생명을 구해요</p>
+
+
+
+</div>
+
+
+
+<div class="container"  data-wow-delay="1.0s">
+
+<div style="Width:100%" class="embed-responsive embed-responsive-16by9">
+
+<iframe src="https://www.youtube.com/embed/VCTBYIjXw4A" frameborder="0"  allowfullscreen></iframe>
+
+
+
+</div>
+
+<br>
+
+
+
+</div>
+
+</section>
+
+
+
+<!--selection-->
+
+<section id="selection" class="pad-lg">
+
+<div class="container">
 
 <div class="row margin-40">
-          <div class="col-xs-4 selection-container wow fadeInUp" data-wow-delay="0.9s">
 
-            <ul class="list-unstyled selection-table text-center">
-              <li class="headline"><h5 class="white">혈소판혈장 헌혈</h5></li>
-              <li class="price"><div class="amount">550<small>/ml</small></div></li>
-              <li class="features first">헌혈 주기 : 2주일</li>
-              <% if(name){ %>
-              <li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/mypage">신청합니다</a></li>
-              <% }else {%>
-              <li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/login">신청합니다</a></li>
-              <% } %>
-            </ul>
-          </div>
-          <div class="col-xs-4 selection-container wow fadeInUp" data-wow-delay="0.3s">
-            <ul class="list-unstyled selection-table text-center">
-              <li class="headline"><h5 class="white">백혈구 헌혈</h5></li>
-              <li class="price"><div class="amount">$12<small>/m</small></div></li>
-              <li class="features first">헌혈 주기 : 2주일</li>
-              <% if(name){ %>
-              <li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/mypage">신청합니다</a></li>
-              <% }else {%>
-              <li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/login">신청합니다</a></li>
-              <% } %>
-            </ul>
-          </div>
-      </div>
-    </section>
+<div class="col-sm-8 col-sm-offset-2 text-center">
+
+<h2 class="white">헌혈 신청</h2>
+
+<p class="white">헌혈 종류를 선택하고, 신청을 제출하시오.</p>
+
+</div>
+
+</div>
 
 
 
-
-    <section id="press" class="pad-sm">
-      <div class="container">
-
-        <div class="row margin-30 news-container">
-          <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 wow fadeInLeft" data-wow-delay="0.8s">
-            <a href="#" target="_blank">
-            <img class="news-img pull-left" src="./template/img/download.png" alt="Dongguk Univ.">
-            <p class="black">Dongguk Network name's Association<br />
-            <small><em>2018년 2학기 공개소프트웨어 5조</em></small></p>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="row margin-40">
 
 
 
+<div class="col-xs-4 selection-container wow fadeInUp" data-wow-delay="0.7s">
+
+<ul class="list-unstyled selection-table text-center">
+
+<li class="headline"><h5 class="white">혈장 헌혈</h5></li>
+
+<li class="price"><div class="amount">500<small>/ml</small></div></li>
+
+<li class="features first">헌혈 가능 주기 : 2주일</li>
+
+<% if(name){ %>
+
+<li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/mypage">신청합니다</a></li>
+
+<% }else {%>
+
+<li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/login">신청합니다</a></li>
+
+<% } %>
+
+</ul>
+
+</div>
+
+<div class="col-xs-4 selection-container wow fadeInUp" data-wow-delay="0.2s">
+
+<ul class="list-unstyled selection-table text-center">
+
+<li class="headline"><h5 class="white">전혈 헌혈</h5></li>
+
+<li class="price"><div class="amount">400<small>/ml</small></div></li>
+
+<li class="features first">헌혈 가능 주기 : 2개월</li>
+
+<% if(name){ %>
+
+<li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/mypage">신청합니다</a></li>
+
+<% }else {%>
+
+<li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/login">신청합니다</a></li>
+
+<% } %>
+
+
+</ul>
+
+</div>
+
+<div class="col-xs-4 selection-container wow fadeInUp" data-wow-delay="0.5s">
+
+<ul class="list-unstyled selection-table text-center">
+
+<li class="headline"><h5 class="white">혈소판 헌혈</h5></li>
+
+<li class="price"><div class="amount">250<small>/ml</small></div></li>
+
+<li class="features first">헌혈 가능 주기 : 2주일</li>
+
+<% if(name){ %>
+
+<li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/mypage">신청합니다</a></li>
+
+<% }else {%>
+
+<li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/login">신청합니다</a></li>
+
+<% } %>
+
+</ul>
+
+</div>
+
+</div>
+
+<br /><br />
 
 
 
-    <footer>
-      <div class="container">
+<div class="row margin-40">
 
-        <div class="row">
-          <div class="col-sm-8 margin-20">
-            <ul class="list-inline social">
-              <li>Connect with us on</li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-          </div>
-
-          <div class="col-sm-4 text-right">
-            <p><small>Copyright &copy; 2018.11.25 All rights reserved. <br>
-	            Created by JackyPark</p>
-          </div>
-        </div>
-
-      </div>
-
-    </footer>
-
-
-    <!-- Javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="./jquery-ui-1.12.1/datepicker-ko.js"></script>
+<div class="col-xs-4 selection-container wow fadeInUp" data-wow-delay="0.9s">
 
 
 
-    </body>
+<ul class="list-unstyled selection-table text-center">
+
+<li class="headline"><h5 class="white">혈소판혈장 헌혈</h5></li>
+
+<li class="price"><div class="amount">550<small>/ml</small></div></li>
+
+<li class="features first">헌혈 주기 : 2주일</li>
+
+<% if(name){ %>
+
+<li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/mypage">신청합니다</a></li>
+
+<% }else {%>
+
+<li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/login">신청합니다</a></li>
+
+<% } %>
+
+</ul>
+
+</div>
+
+<div class="col-xs-4 selection-container wow fadeInUp" data-wow-delay="0.3s">
+
+<ul class="list-unstyled selection-table text-center">
+
+<li class="headline"><h5 class="white">백혈구 헌혈</h5></li>
+
+<li class="price"><div class="amount">$12<small>/m</small></div></li>
+
+<li class="features first">헌혈 주기 : 2주일</li>
+
+<% if(name){ %>
+
+<li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/mypage">신청합니다</a></li>
+
+<% }else {%>
+
+<li class="features last btn btn-secondary btn-wide"><a href="http://52.79.243.88:3000/login">신청합니다</a></li>
+
+<% } %>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+<section id="press" class="pad-sm">
+
+<div class="container">
+
+
+
+<div class="row margin-30 news-container">
+
+<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 wow fadeInLeft" data-wow-delay="0.8s">
+
+<a href="#" target="_blank">
+
+<img class="news-img pull-left" src="./template/img/download.png" alt="Dongguk Univ.">
+
+<p class="black">Dongguk Network name's Association<br />
+
+<small><em>2018년 2학기 공개소프트웨어 5조</em></small></p>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+
+<div class="container">
+
+
+
+<div class="row">
+
+<div class="col-sm-8 margin-20">
+
+<ul class="list-inline social">
+
+<li>Connect with us on</li>
+
+<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+
+<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+
+<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+
+</ul>
+
+</div>
+
+
+
+<div class="col-sm-4 text-right">
+
+<p><small>Copyright &copy; 2018.11.25 All rights reserved. <br>
+
+Created by JackyPark</p>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+</footer>
+
+
+
+
+
+<!-- Javascript
+
+================================================== -->
+
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
+
+<script src="js/wow.min.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/main.js"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script src="./jquery-ui-1.12.1/datepicker-ko.js"></script>
+
+
+
+
+
+
+
+</body>
+
 </html>
+
+
+
+
+
+
+
