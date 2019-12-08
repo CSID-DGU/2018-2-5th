@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Blood Chain</title>
+</head>
+<body class="container">
+<ul class="upper">
+    <li class="list1">
+        <a class="list1-link" href="index.html">검색</a>
+    </li>
+    <li class="list12">
+        <a class="list2 -linkage" href="create.html">생성</a>
+    </li>
+</ul>
+<h1>헌혈 기부 블록체인 데모</h1>
+
+<legend> Blood ID 생성</legend>
+<div class="group">
+    <label for="Sex" class="control-label">식별 ID</label>
+    <legend> 12WWRKS-DDD-9811-8JJ</legend>
+</div>
+<div class="group">
+    <label for="Sex" class="control-label">성별(Sex)</label>
+    <select class="form-control" id="Sex">
+        <option>여(Women)</option>
+        <option>남(Men)</option>
+    </select>
+
+</div>
+<div class="group">
+    <div class="controls text-left">
+        <label for="exampleFormControlSelect1">혈액형(Blood Type)</label>
+        <select class="form-control" id="bloodType">
+            <option>O+</option>
+            <option>O-</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+        </select>
+
+    </div>
+</div>
+
+<!-- Fuel UX Select http://getfuelux.com/javascript.html#selectlist -->
+<div class="group">
+    <div class="controls text-left">
+        <label for="exampleFormControlSelect1">나이(Age Range)</label>
+        <select class="form-control" id="ageRange">
+            <option>16-19</option>
+            <option>20-25</option>
+            <option>26-30</option>
+            <option>31-35</option>
+            <option>36-40</option>
+            <option>41-45</option>
+            <option>46-50</option>
+            <option>51-55</option>
+            <option>56-60</option>
+            <option>61-65</option>
+            <option>66+</option>
+        </select>
+
+    </div>
+</div>
+<!-- Bootstrap Select http://getbootstrap.com/css/#selects -->
+<div class="group">
+    <label class="control-label" for="address">주소(Address)(주민등록상)</label>
+    <div class="controls " data-initialize="placard" id="address">
+        <div class="placard-popup"></div>
+        <input class="form-control placard-field" placeholder="도/시/동(구/읍/면/리) 입력" type="text"/>
+        <button type="button" id="singlebutton" name="singlebutton" class="btn btn-primary" aria-label="Single Button" onclick="create()">Search</button>
+
+    </div>
+</div>
+
+<div class="group">
+    <div class="text-right">
+        <button type="button" id="singlebutton" name="singlebutton" class="btn btn-primary" aria-label="Single Button" onclick="create()">Create</button>
+    </div>
+</div>
+<div class="group">
+    <div class="text-right">
+        <button type="button" id="singlebutton" name="singlebutton" class="btn btn-primary" aria-label="Single Button" onclick="test()">Test</button>
+    </div>
+</div>
+</fieldset>
+</form>
+</body>
+<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="./Create.js"></script>
+</html>
